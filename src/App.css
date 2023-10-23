@@ -50,3 +50,43 @@
   font-size: 2rem;
   border-radius: 20px;
 }
+.form {
+  background-color: rgb(215, 172, 215);
+  border-radius: 20px;
+  padding: 2rem 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.form input {
+  width: 40%;
+  padding: 0.9rem 0.5rem;
+  border-radius: 20px;
+  border: 0;
+  background-color: rgb(42, 4, 4);
+}
+.form input:focus {
+  background-color: #fff;
+  color: #000;
+}
+.form select {
+  width: 4rem;
+  outline: 0;
+  background-color: lightsalmon;
+  /* padding: 0.9rem 0.5rem; */
+}
+.form button {
+  background-color: darkmagenta;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.9rem 1.1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: all 0.9s;
+}
+.form button:active {
+  transform: scale(0.8);
+}

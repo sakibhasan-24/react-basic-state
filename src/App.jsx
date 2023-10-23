@@ -4,8 +4,9 @@ import "./App.css";
 function App() {
   return (
     <>
-      <Add />
-      <Modal />
+      {/* <Add />
+      <Modal /> */}
+      <Form />
     </>
   );
 }
@@ -13,6 +14,26 @@ function App() {
 export default App;
 // open modal
 // close modal
+
+function Form() {
+  const options = Array.from(
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((x) => (
+      <option key={x} value={x}>
+        {x}
+      </option>
+    ))
+  );
+
+  return (
+    <div>
+      <form className="form">
+        <select>{options}</select>
+        <input type="text" name="" placeholder="items...." id="" />
+        <button>Add</button>
+      </form>
+    </div>
+  );
+}
 function Modal() {
   const closeStyle = {
     margin: "40px",
