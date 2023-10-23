@@ -24,11 +24,37 @@ function Form() {
     ))
   );
 
+  const [inputValue, setInputValue] = useState("");
+  const [quantity, setQuantity] = useState(1);
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    if (!inputValue) return;
+    const newItems = {
+      inputValue,
+      quantity,
+      isExpensive: false,
+      id: Date.now(),
+    };
+    setInputValue("");
+    setQuantity(1);
+    // console.log(newItems);
+    // console.log(event);
+  };
+
   return (
     <div>
-      <form className="form">
-        <select>{options}</select>
-        <input type="text" name="" placeholder="items...." id="" />
+      <form onSubmit={handleFormSubmit} className="form">
+        <select value={quantity} onChange={(e) => setQuantity(+e.target.value)}>
+          {options}
+        </select>
+        <input
+          type="text"
+          value={inputValue}
+          name=""
+          placeholder="items...."
+          id=""
+          onChange={(e) => setInputValue(e.target.value)}
+        />
         <button>Add</button>
       </form>
     </div>
