@@ -6,12 +6,16 @@ function App() {
   function handleAddItems(item) {
     setItems((items) => [...items, item]);
   }
+  const handleDelete = (id) => {
+    const newItems = items.filter((item) => item.id !== id);
+    setItems(newItems);
+  };
   return (
     <>
       {/* <Add />
       <Modal /> */}
       <Form handleAddItems={handleAddItems} />
-      <ListItems items={items} />
+      <ListItems items={items} handleDelete={handleDelete} />
     </>
   );
 }
@@ -19,8 +23,12 @@ function App() {
 export default App;
 // open modal
 // close modal
-function ListItems({ items }) {
-  console.log(items);
+function ListItems({ items, handleDelete }) {
+  // console.log(items);
+  // we need to delete from list items when we clicked X button
+  // const handleDelete = (id) => {
+  //   // yes easily i get my id which one i want to delete.but problem is that i want delete from list items.so i need to go list items in the top but i can't go there
+  // };
   return (
     <main>
       <div className="list-items">
@@ -28,7 +36,7 @@ function ListItems({ items }) {
           {items.map((item) => (
             <li key={item.id}>
               {item.inputValue} {item.quantity}
-              <span>&#10060;</span>
+              <span onClick={() => handleDelete(item.id)}>&#10060;</span>
             </li>
           ))}
         </ul>
