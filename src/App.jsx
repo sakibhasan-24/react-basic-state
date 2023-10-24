@@ -2,11 +2,16 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
+  const [items, setItems] = useState([]);
+  function handleAddItems(item) {
+    setItems((items) => [...items, item]);
+  }
   return (
     <>
       {/* <Add />
       <Modal /> */}
-      <Form />
+      <Form handleAddItems={handleAddItems} />
+      <ListItems items={items} />
     </>
   );
 }
@@ -14,8 +19,24 @@ function App() {
 export default App;
 // open modal
 // close modal
-
-function Form() {
+function ListItems({ items }) {
+  console.log(items);
+  return (
+    <main>
+      <div className="list-items">
+        <ul className="lists">
+          {items.map((item) => (
+            <li key={item.id}>
+              {item.inputValue} {item.quantity}
+              <span>&#10060;</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </main>
+  );
+}
+function Form({ handleAddItems }) {
   const options = Array.from(
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((x) => (
       <option key={x} value={x}>
@@ -26,6 +47,10 @@ function Form() {
 
   const [inputValue, setInputValue] = useState("");
   const [quantity, setQuantity] = useState(1);
+  // const [items, setItems] = useState([]);
+  // function handleAddItems(item) {
+  //   setItems((items) => [...items, item]);
+  // }
   const handleFormSubmit = (event) => {
     event.preventDefault();
     if (!inputValue) return;
@@ -35,6 +60,7 @@ function Form() {
       isExpensive: false,
       id: Date.now(),
     };
+    handleAddItems(newItems);
     setInputValue("");
     setQuantity(1);
     // console.log(newItems);

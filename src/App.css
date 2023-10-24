@@ -40,6 +40,10 @@
 .read-the-docs {
   color: #888;
 } */
+
+body li {
+  list-style-type: none;
+}
 .modal {
   width: 500px;
   height: 300px;
@@ -89,4 +93,17 @@
 }
 .form button:active {
   transform: scale(0.8);
+}
+
+.list-items {
+  background-color: rgb(100, 3, 35);
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  color: whitesmoke;
+}
+.lists {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
 }
