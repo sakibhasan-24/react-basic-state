@@ -24,7 +24,6 @@ export default App;
 // open modal
 // close modal
 function ListItems({ items, handleDelete }) {
-  // console.log(items);
   // we need to delete from list items when we clicked X button
   // const handleDelete = (id) => {
   //   // yes easily i get my id which one i want to delete.but problem is that i want delete from list items.so i need to go list items in the top but i can't go there
