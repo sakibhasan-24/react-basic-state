@@ -9,3 +9,7 @@ practice useState
 # implement deleting
 
 ##### when i clicked delete button one items will delete,thats easy,but i need to click in an item,then this item will go item list,then delete it,so i need to set function on parents components
+
+# Topics Covered
+
+##### 1)useState 2)form controlled 3)lifting state
